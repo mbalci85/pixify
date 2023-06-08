@@ -18,7 +18,7 @@ header {
     justify-content:space-between;
     align-items: center;
     background-color:#2A3B49;
-    height: auto;
+    height: 70px;
     max-width:100%
 
 }
@@ -52,7 +52,7 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 748px;
+    height: calc(100vh - 70px);
 }
 
 .description{
