@@ -1,6 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 
 * {
     margin: 0;
@@ -13,33 +11,71 @@ a {
     text-decoration: none;
 }
 
-header {
+
+.about-body {
     display: flex;
-    justify-content:space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color:#2A3B49;
-    height: 70px;
-    max-width:100%
-
+    padding: 30px;
+    line-height: 1.4; 
 }
 
-.logo {
-    font-size: 36px;
-    margin: 5px 15px;
+.about-intro {
+    margin-bottom: 60px;
+    text-align: center;
 }
 
-.logo a {
-    color:#7BFFE9
+.about-intro h1 {
+    font-weight: 900;
+    margin-bottom: 10px;
 }
 
-.nav-items {
+.about-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+
 }
 
-.nav-items a {
-    color:#FFFF;
-    margin: 0 15px;
+.about-text {
+   margin-right: 80px;
+}
+
+.about-text p{
+    margin-bottom: 30px;
+}
+
+
+.about-submit-now {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    color:#7BFFE9;
+    padding: 28px 18px;
+    border-radius: 60px;
+    width: 350px;
+    margin-top:60px ;
+    background-color: #2A3B49;
+
+}
+
+.about-img {
+
+    height:608px;
+    width:445px;
+    margin-bottom: 80px;
+    border-radius: 6px;
+}
+
+
+
+@media(max-width:925px) {
+    .about-content {
+       flex-direction: column-reverse;
+       align-items: center;
+    }
+
+    .about-text {
+        margin-right: 0 40px;
+     }
 }

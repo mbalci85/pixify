@@ -13,33 +13,3 @@ a {
     text-decoration: none;
 }
 
-header {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    background-color:#2A3B49;
-    height: 70px;
-    max-width:100%
-
-}
-
-.logo {
-    font-size: 36px;
-    margin: 5px 15px;
-}
-
-.logo a {
-    color:#7BFFE9
-}
-
-.nav-items {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.nav-items a {
-    color:#FFFF;
-    margin: 0 15px;
-}
