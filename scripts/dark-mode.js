@@ -1,3 +1,4 @@
+console.log(document);
 const themeBtn = document.querySelector('.theme-btn');
 
 const toggleTheme = () => {
