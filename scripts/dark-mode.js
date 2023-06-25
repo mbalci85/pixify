@@ -6,6 +6,7 @@ const toggleTheme = () => {
 	const pageTitle = document.querySelector('h1');
 	const button = document.querySelector('.about-submit-now');
 	const text = document.querySelectorAll('p');
+	const detailBtn = document.querySelectorAll('a');
 	console.log(6666);
 
 	if (themeBtn.innerHTML === 'Dark Mode') {
@@ -15,6 +16,9 @@ const toggleTheme = () => {
 		for (let i = 0; i < text.length; i++) {
 			text[i].style.color = 'white';
 		}
+		for (let i = 0; i < detailBtn.length; i++) {
+			detailBtn[i].style.color = 'white';
+		}
 		button.style.border = '2px solid #7BFFE9';
 	} else {
 		body.style.backgroundColor = 'white';
@@ -22,6 +26,9 @@ const toggleTheme = () => {
 		themeBtn.innerHTML = 'Dark Mode';
 		for (let i = 0; i < text.length; i++) {
 			text[i].style.color = 'black';
+		}
+		for (let i = 0; i < detailBtn.length; i++) {
+			detailBtn[i].style.color = 'black';
 		}
 		button.style.border = 'none';
 	}

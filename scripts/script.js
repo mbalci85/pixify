@@ -48,3 +48,29 @@ const imageSets = [
 		],
 	},
 ];
+
+const main = document.querySelector('main');
+const imageContainer = document.createElement('div');
+
+main.appendChild(imageContainer);
+
+imageContainer.setAttribute('id', 'img-container');
+
+const displayImages = (images) => {
+	const imgCards = images
+		.map((img) => {
+			return `<div class='img-card'>
+		<img class='img' src='${img.images[0]}' alt=${img.name}>
+		<div class='img-info'>
+			<p>${img.title} - ${img.name}</p> 
+			<a href='#'>see more</a>
+		</div>
+		
+		</div>`;
+		})
+		.join('');
+
+	imageContainer.innerHTML = imgCards;
+};
+
+window.onload = displayImages(imageSets);
