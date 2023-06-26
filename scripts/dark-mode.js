@@ -1,4 +1,3 @@
-console.log(document);
 const themeBtn = document.querySelector('.theme-btn');
 
 const toggleTheme = () => {
@@ -6,8 +5,7 @@ const toggleTheme = () => {
 	const pageTitle = document.querySelector('h1');
 	const button = document.querySelector('.about-submit-now');
 	const text = document.querySelectorAll('p');
-	const detailBtn = document.querySelectorAll('a');
-	console.log(6666);
+	const detailBtn = document.querySelectorAll('.detail-btn');
 
 	if (themeBtn.innerHTML === 'Dark Mode') {
 		body.style.backgroundColor = '#2A3B49';

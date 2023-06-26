@@ -49,13 +49,14 @@ const imageSets = [
 	},
 ];
 
-const main = document.querySelector('main');
+const main = document.querySelector('#submission-main');
 const imageContainer = document.createElement('div');
 
 main.appendChild(imageContainer);
 
 imageContainer.setAttribute('id', 'img-container');
 
+//Display images in the array
 const displayImages = (images) => {
 	const imgCards = images
 		.map((img) => {
@@ -63,7 +64,7 @@ const displayImages = (images) => {
 		<img class='img' src='${img.images[0]}' alt=${img.name}>
 		<div class='img-info'>
 			<p>${img.title} - ${img.name}</p> 
-			<a href='#'>see more</a>
+			<a class='detail-btn' href='#'>see more</a>
 		</div>
 		
 		</div>`;
@@ -74,3 +75,40 @@ const displayImages = (images) => {
 };
 
 window.onload = displayImages(imageSets);
+
+//Submit Image
+
+const submitBtn = document.querySelector('#submission-form');
+
+submitBtn.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const name = document.querySelector('input[id="name"]').value;
+	const title = document.querySelector('input[id="title"]').value;
+	const imgUrlOne = document.querySelector('input[id="img-1"]').value;
+	const imgUrlTwo = document.querySelector('input[id="img-2"]').value;
+	const imgUrlThree = document.querySelector('input[id="img-3"]').value;
+	const imgUrlFour = document.querySelector('input[id="img-4"]').value;
+	const imgUrlFive = document.querySelector('input[id="img-5"]').value;
+	console.log(name);
+	const newImage = document.createElement('div');
+
+	newImage.innerHTML = `<div class='img-card'>
+	<img class='img' src='${imgUrlOne}' alt=${title}>
+	<div class='img-info'>
+		<p>${title} - ${name}</p> 
+		<a href='#'>see more</a>
+	</div>
+	
+	</div>`;
+
+	imageContainer.insertBefore(newImage, imageContainer.firstChild);
+
+	document.querySelector('input[id="name"]').value = '';
+	document.querySelector('input[id="title"]').value = '';
+	document.querySelector('input[id="img-1"]').value = '';
+	document.querySelector('input[id="img-2"]').value = '';
+	document.querySelector('input[id="img-3"]').value = '';
+	document.querySelector('input[id="img-4"]').value = '';
+	document.querySelector('input[id="img-5"]').value = '';
+});
