@@ -5,14 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIXIFY</title>
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/detail.css">
 </head>
 
 <body>
+    <header>
+        <div class="logo">
+            <a href="./index.html">PIXIFY</a>
+        </div>
+        <div class="nav-items">
+            <a href="./submission.html">2023 Submissions</a>
+            <a href="./about.html">About</a>
+            <a style="color:#7BFFE9" href="#" class="theme-btn">Dark Mode</a>
+        </div>
+    </header>
     <main id="detail-container">
-
+        <div id="btn-container">
+            <button id='prev-btn'>Previous</button>
+            <button id='next-btn'>Next</button>
+        </div>
     </main>
 
     <script src="../scripts/detail.js"></script>
+    <script src="../scripts/dark-mode.js"></script>
 </body>
 
 </html>

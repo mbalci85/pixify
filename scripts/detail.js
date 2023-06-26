@@ -49,13 +49,9 @@ const imageSets = [
 	},
 ];
 
-let imgID;
-
 window.onload = function () {
 	const urlParams = new URLSearchParams(window.location.search);
 	let currentID = urlParams.get('id');
-
-	imgID = currentID;
 
 	const currentImg = imageSets.filter((img) => currentID == img.id)[0];
 	const detailContainer = document.querySelector('#detail-container');
@@ -63,9 +59,43 @@ window.onload = function () {
 	detailContainer.appendChild(detailBody);
 	detailBody.setAttribute('id', 'detail-body');
 
-	const detail = `<h2>${currentImg.title}</h2>
+	let currentImgIndex = 0;
+
+	const detail = `<h1>${currentImg.title}</h1>
     <p>${currentImg.name}</p>
-    <img src='${currentImg.images[0]}'>
-    <p>1 of 5</p>`;
+    <img class='detail-img' src='${currentImg.images[currentImgIndex]}' alt='${
+		currentImg.title
+	}'>
+    <p class='img-count'>${currentImgIndex + 1} of ${currentImg.images.length}</p>
+	`;
+
 	detailBody.innerHTML = detail;
+	detailContainer.insertBefore(detailBody, detailContainer.firstChild);
+
+	const img = document.querySelector('.detail-img');
+	const imgCount = document.querySelector('.img-count');
+
+	const prevBtn = document.querySelector('#prev-btn');
+	const nextBtn = document.querySelector('#next-btn');
+
+	prevBtn.addEventListener('click', () => {
+		if (currentImgIndex - 1 >= 0) {
+			currentImgIndex--;
+			update();
+		}
+		console.log(currentImgIndex);
+	});
+
+	nextBtn.addEventListener('click', () => {
+		if (currentImgIndex + 1 < currentImg.images.length) {
+			currentImgIndex++;
+			update();
+		}
+		console.log(currentImgIndex);
+	});
+
+	const update = () => {
+		img.src = currentImg.images[currentImgIndex];
+		imgCount.innerHTML = `${currentImgIndex + 1} of ${currentImg.images.length}`;
+	};
 };
