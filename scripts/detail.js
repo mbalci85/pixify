@@ -49,66 +49,23 @@ const imageSets = [
 	},
 ];
 
-const main = document.querySelector('#submission-main');
-const imageContainer = document.createElement('div');
+let imgID;
 
-main.appendChild(imageContainer);
+window.onload = function () {
+	const urlParams = new URLSearchParams(window.location.search);
+	let currentID = urlParams.get('id');
 
-imageContainer.setAttribute('id', 'img-container');
+	imgID = currentID;
 
-//Display images in the array
-const displayImages = (images) => {
-	const imgCards = images
-		.map((img) => {
-			return `<div class='img-card'>
-		<img class='img' src='${img.images[0]}' alt=${img.name}>
-		<div class='img-info'>
-			<p>${img.title} - ${img.name}</p> 
-			<a class='detail-btn' href='../pages/detail.html?id=${img.id}'>see more</a>
-		</div>
-		
-		</div>`;
-		})
-		.join('');
+	const currentImg = imageSets.filter((img) => currentID == img.id)[0];
+	const detailContainer = document.querySelector('#detail-container');
+	const detailBody = document.createElement('div');
+	detailContainer.appendChild(detailBody);
+	detailBody.setAttribute('id', 'detail-body');
 
-	imageContainer.innerHTML = imgCards;
+	const detail = `<h2>${currentImg.title}</h2>
+    <p>${currentImg.name}</p>
+    <img src='${currentImg.images[0]}'>
+    <p>1 of 5</p>`;
+	detailBody.innerHTML = detail;
 };
-
-window.onload = displayImages(imageSets);
-
-//Submit Image
-
-const submitBtn = document.querySelector('#submission-form');
-
-submitBtn.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	const name = document.querySelector('input[id="name"]').value;
-	const title = document.querySelector('input[id="title"]').value;
-	const imgUrlOne = document.querySelector('input[id="img-1"]').value;
-	const imgUrlTwo = document.querySelector('input[id="img-2"]').value;
-	const imgUrlThree = document.querySelector('input[id="img-3"]').value;
-	const imgUrlFour = document.querySelector('input[id="img-4"]').value;
-	const imgUrlFive = document.querySelector('input[id="img-5"]').value;
-	console.log(name);
-	const newImage = document.createElement('div');
-
-	newImage.innerHTML = `<div class='img-card'>
-	<img class='img' src='${imgUrlOne}' alt=${title}>
-	<div class='img-info'>
-		<p>${title} - ${name}</p> 
-		<a href='#'>see more</a>
-	</div>
-	
-	</div>`;
-
-	imageContainer.insertBefore(newImage, imageContainer.firstChild);
-
-	document.querySelector('input[id="name"]').value = '';
-	document.querySelector('input[id="title"]').value = '';
-	document.querySelector('input[id="img-1"]').value = '';
-	document.querySelector('input[id="img-2"]').value = '';
-	document.querySelector('input[id="img-3"]').value = '';
-	document.querySelector('input[id="img-4"]').value = '';
-	document.querySelector('input[id="img-5"]').value = '';
-});
