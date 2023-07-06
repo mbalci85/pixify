@@ -83,7 +83,6 @@ window.onload = function () {
 			currentImgIndex--;
 			update();
 		}
-		console.log(currentImgIndex);
 	});
 
 	nextBtn.addEventListener('click', () => {
@@ -91,7 +90,6 @@ window.onload = function () {
 			currentImgIndex++;
 			update();
 		}
-		console.log(currentImgIndex);
 	});
 
 	const update = () => {

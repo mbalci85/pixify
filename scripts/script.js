@@ -90,7 +90,7 @@ submitBtn.addEventListener('submit', (e) => {
 	const imgUrlThree = document.querySelector('input[id="img-3"]').value;
 	const imgUrlFour = document.querySelector('input[id="img-4"]').value;
 	const imgUrlFive = document.querySelector('input[id="img-5"]').value;
-	console.log(name);
+
 	const newImage = document.createElement('div');
 
 	newImage.innerHTML = `<div class='img-card'>
